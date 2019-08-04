@@ -8,8 +8,8 @@
 
 #import "AppDelegate.h"
 #import "BookListViewController.h"
-#import "Modules/BookScannerViewController.h"
-#import "Modules/BookAnalyticsViewController.h"
+#import "Modules/BookScanner/BookScannerViewController.h"
+#import "BookAnalyticsViewController.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 

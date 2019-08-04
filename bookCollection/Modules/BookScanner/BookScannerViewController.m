@@ -7,18 +7,19 @@
 //
 
 #import "BookScannerViewController.h"
+#import "BookScannerView.h"
 
 @interface BookScannerViewController ()
-
+@property(strong,nonatomic)BookScannerView *scannerView;
 @end
 
 @implementation BookScannerViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self initNavigation];
 
+    [self initNavigation];
+    [self initSubViews];
 }
 
 
@@ -52,6 +53,28 @@
     button.selected = !button.selected;
 }
 
+-(void)initSubViews{
+    [self initCamera];
+    [self initScannerView];
+    [self initTip];
+}
+
+-(void)initCamera{}
+-(void)initScannerView{
+    self.scannerView = [[BookScannerView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) rectSize:CGSizeMake(230.0f, 230.0f) offsetY:-43.0f];
+    self.scannerView.backgroundColor = [UIColor clearColor];
+    self.scannerView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:self.scannerView];
+    
+    [self.scannerView startAnimation];
+}
+-(void)initTip{
+    UILabel *tipLabel = [[UILabel alloc]initWithFrame:CGRectMake(0,self.view.bounds.size.height - ((self.view.bounds.size.height - 230.0f)/2) + 20.0f, self.view.bounds.size.width, 10.0f)];
+    [tipLabel setText:@"将条形码放入输入框内，即可自动扫描"];
+    [tipLabel setTextColor:[UIColor whiteColor]];
+    [tipLabel setTextAlignment:NSTextAlignmentCenter];
+    [self.view addSubview:tipLabel];
+}
 
 /*
 #pragma mark - Navigation

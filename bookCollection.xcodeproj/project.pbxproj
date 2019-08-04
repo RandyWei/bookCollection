@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B61C39F322F69BE20020E588 /* BookScannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C39F222F69BE20020E588 /* BookScannerView.m */; };
 		B63E94FD22F66C4400B78504 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B63E94FC22F66C4400B78504 /* AppDelegate.m */; };
 		B63E950022F66C4400B78504 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63E94FF22F66C4400B78504 /* ViewController.m */; };
 		B63E950322F66C4400B78504 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63E950122F66C4400B78504 /* Main.storyboard */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B61C39F122F69BE20020E588 /* BookScannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookScannerView.h; sourceTree = "<group>"; };
+		B61C39F222F69BE20020E588 /* BookScannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookScannerView.m; sourceTree = "<group>"; };
 		B63E94F822F66C4400B78504 /* bookCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63E94FB22F66C4400B78504 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B63E94FC22F66C4400B78504 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -87,6 +90,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B61C39F022F69B790020E588 /* BookScanner */ = {
+			isa = PBXGroup;
+			children = (
+				B63E953122F677DB00B78504 /* BookScannerViewController.h */,
+				B63E953222F677DB00B78504 /* BookScannerViewController.m */,
+				B61C39F122F69BE20020E588 /* BookScannerView.h */,
+				B61C39F222F69BE20020E588 /* BookScannerView.m */,
+			);
+			path = BookScanner;
+			sourceTree = "<group>";
+		};
 		B63E94EF22F66C4400B78504 = {
 			isa = PBXGroup;
 			children = (
@@ -145,10 +159,9 @@
 		B63E952D22F6779800B78504 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B61C39F022F69B790020E588 /* BookScanner */,
 				B63E952E22F677BC00B78504 /* BookListViewController.h */,
 				B63E952F22F677BC00B78504 /* BookListViewController.m */,
-				B63E953122F677DB00B78504 /* BookScannerViewController.h */,
-				B63E953222F677DB00B78504 /* BookScannerViewController.m */,
 				B63E953422F677EC00B78504 /* BookAnalyticsViewController.h */,
 				B63E953522F677EC00B78504 /* BookAnalyticsViewController.m */,
 			);
@@ -289,6 +302,7 @@
 				B63E950022F66C4400B78504 /* ViewController.m in Sources */,
 				B63E953322F677DB00B78504 /* BookScannerViewController.m in Sources */,
 				B63E953022F677BC00B78504 /* BookListViewController.m in Sources */,
+				B61C39F322F69BE20020E588 /* BookScannerView.m in Sources */,
 				B63E950B22F66C4600B78504 /* main.m in Sources */,
 				B63E94FD22F66C4400B78504 /* AppDelegate.m in Sources */,
 			);
