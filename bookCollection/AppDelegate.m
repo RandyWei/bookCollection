@@ -7,8 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "BookListViewController.h"
+#import "Modules/BookScannerViewController.h"
+#import "Modules/BookAnalyticsViewController.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -17,6 +20,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+
+    UITabBarController *tabBarController = [[UITabBarController alloc]init];
+    self.window.rootViewController = tabBarController;
+    tabBarController.delegate = self;
+    
+    BookListViewController *bookListViewController = [[BookListViewController alloc]init];
+    UITabBarItem *bookListTabBarItem = [[UITabBarItem alloc]initWithTitle:@"我的藏书" image:[[UIImage imageNamed:@"tabbar-icon-collection"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"tabbar-icon-collection"]];
+    bookListViewController.tabBarItem = bookListTabBarItem;
+    
+    BookScannerViewController *bookScannerViewController = [[BookScannerViewController alloc]init];
+    UITabBarItem *bookScannerTabBarItem = [[UITabBarItem alloc]initWithTitle:@"扫码藏书" image:[[UIImage imageNamed:@"tabbar-icon-scan"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"tabbar-icon-scan"]];
+    bookScannerViewController.tabBarItem = bookScannerTabBarItem;
+    
+    BookAnalyticsViewController *bookAnalyticsViewController = [[BookAnalyticsViewController alloc]init];
+    UITabBarItem *bookAnalyticsTabBarItem = [[UITabBarItem alloc]initWithTitle:@"我" image:[[UIImage imageNamed:@"tabbar-icon-me"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"tabbar-icon-me"]];
+    bookAnalyticsViewController.tabBarItem = bookAnalyticsTabBarItem;
+    
+    tabBarController.viewControllers = @[bookListViewController,bookScannerViewController,bookAnalyticsViewController];
+    tabBarController.tabBar.itemPositioning = UITabBarItemPositioningCentered;
+    
     return YES;
 }
 
@@ -47,5 +74,19 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma UITabBarControllerDelegate
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    if ([viewController isKindOfClass:[BookScannerViewController class]]) {
+        
+        BookScannerViewController *bookScannerViewController = [[BookScannerViewController alloc]init];
+        
+        UINavigationController *navigationController = [[UINavigationController alloc]initWithRootViewController:bookScannerViewController];
+        [self.window.rootViewController presentViewController:navigationController animated:YES completion:nil];
+        
+        return NO;
+    }
+    return YES;
+}
 
 @end
