@@ -8,6 +8,7 @@
 
 #import "BookScannerViewController.h"
 #import "BookScannerView.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface BookScannerViewController ()
 @property(strong,nonatomic)BookScannerView *scannerView;
@@ -20,6 +21,8 @@
 
     [self initNavigation];
     [self initSubViews];
+    
+    [self fetchBookWithISBN:@"9787115314581"];
 }
 
 
@@ -75,6 +78,30 @@
     [tipLabel setTextAlignment:NSTextAlignmentCenter];
     [self.view addSubview:tipLabel];
 }
+
+-(void)fetchBookWithISBN:(NSString*)ISBN{
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc]initWithSessionConfiguration:configuration];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.douban.com/v2/book/isbn/%@",ISBN]];
+    
+    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (error!=nil) {
+            NSLog(@"error:%@",error);
+        }else{
+            NSLog(@"%@",responseObject);
+        }
+    }];
+    
+    [dataTask resume];
+    
+}
+
 
 /*
 #pragma mark - Navigation
