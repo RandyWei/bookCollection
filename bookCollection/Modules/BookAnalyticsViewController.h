@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "../BaseViewController/BaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BookAnalyticsViewController : UIViewController
+@interface BookAnalyticsViewController : BaseViewController
 
 @end
 

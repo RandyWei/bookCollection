@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "../BaseViewController/BaseViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BookListViewController : UIViewController
+@interface BookListViewController : BaseViewController
 
 @end
 

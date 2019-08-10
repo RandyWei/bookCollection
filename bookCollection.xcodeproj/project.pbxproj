@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5335A9339813F9AB472156F3 /* libPods-bookCollection.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EC8DF64CC38A2F6B7B289CE /* libPods-bookCollection.a */; };
 		B61C39F322F69BE20020E588 /* BookScannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C39F222F69BE20020E588 /* BookScannerView.m */; };
+		B61C39F822FE59100020E588 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C39F722FE59100020E588 /* BaseViewController.m */; };
+		B61C39FB22FE59300020E588 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = B61C39FA22FE59300020E588 /* BaseNavigationController.m */; };
 		B63E94FD22F66C4400B78504 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B63E94FC22F66C4400B78504 /* AppDelegate.m */; };
 		B63E950022F66C4400B78504 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63E94FF22F66C4400B78504 /* ViewController.m */; };
 		B63E950322F66C4400B78504 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B63E950122F66C4400B78504 /* Main.storyboard */; };
@@ -44,6 +46,10 @@
 		6EC8DF64CC38A2F6B7B289CE /* libPods-bookCollection.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-bookCollection.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61C39F122F69BE20020E588 /* BookScannerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookScannerView.h; sourceTree = "<group>"; };
 		B61C39F222F69BE20020E588 /* BookScannerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookScannerView.m; sourceTree = "<group>"; };
+		B61C39F622FE59100020E588 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		B61C39F722FE59100020E588 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		B61C39F922FE59300020E588 /* BaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		B61C39FA22FE59300020E588 /* BaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		B63E94F822F66C4400B78504 /* bookCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bookCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B63E94FB22F66C4400B78504 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B63E94FC22F66C4400B78504 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -115,6 +121,17 @@
 			path = BookScanner;
 			sourceTree = "<group>";
 		};
+		B61C39F522FE58E90020E588 /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B61C39F622FE59100020E588 /* BaseViewController.h */,
+				B61C39F722FE59100020E588 /* BaseViewController.m */,
+				B61C39F922FE59300020E588 /* BaseNavigationController.h */,
+				B61C39FA22FE59300020E588 /* BaseNavigationController.m */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
 		B63E94EF22F66C4400B78504 = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +157,7 @@
 		B63E94FA22F66C4400B78504 /* bookCollection */ = {
 			isa = PBXGroup;
 			children = (
+				B61C39F522FE58E90020E588 /* BaseViewController */,
 				B63E952D22F6779800B78504 /* Modules */,
 				B63E94FB22F66C4400B78504 /* AppDelegate.h */,
 				B63E94FC22F66C4400B78504 /* AppDelegate.m */,
@@ -345,9 +363,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B63E953622F677EC00B78504 /* BookAnalyticsViewController.m in Sources */,
+				B61C39F822FE59100020E588 /* BaseViewController.m in Sources */,
 				B63E950022F66C4400B78504 /* ViewController.m in Sources */,
 				B63E953322F677DB00B78504 /* BookScannerViewController.m in Sources */,
 				B63E953022F677BC00B78504 /* BookListViewController.m in Sources */,
+				B61C39FB22FE59300020E588 /* BaseNavigationController.m in Sources */,
 				B61C39F322F69BE20020E588 /* BookScannerView.m in Sources */,
 				B63E950B22F66C4600B78504 /* main.m in Sources */,
 				B63E94FD22F66C4400B78504 /* AppDelegate.m in Sources */,

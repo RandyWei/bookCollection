@@ -10,6 +10,7 @@
 #import "BookListViewController.h"
 #import "Modules/BookScanner/BookScannerViewController.h"
 #import "BookAnalyticsViewController.h"
+#import "BaseViewController/BaseNavigationController.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
@@ -28,20 +29,24 @@
     UITabBarController *tabBarController = [[UITabBarController alloc]init];
     self.window.rootViewController = tabBarController;
     tabBarController.delegate = self;
-    
+
     BookListViewController *bookListViewController = [[BookListViewController alloc]init];
+    bookListViewController.navigationItem.title = @"我的藏书";
     UITabBarItem *bookListTabBarItem = [[UITabBarItem alloc]initWithTitle:@"我的藏书" image:[[UIImage imageNamed:@"tabbar-icon-collection"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"tabbar-icon-collection"]];
     bookListViewController.tabBarItem = bookListTabBarItem;
-    
+    BaseNavigationController *bookListNavigationController = [[BaseNavigationController alloc]initWithRootViewController:bookListViewController];
+
     BookScannerViewController *bookScannerViewController = [[BookScannerViewController alloc]init];
     UITabBarItem *bookScannerTabBarItem = [[UITabBarItem alloc]initWithTitle:@"扫码藏书" image:[[UIImage imageNamed:@"tabbar-icon-scan"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"tabbar-icon-scan"]];
     bookScannerViewController.tabBarItem = bookScannerTabBarItem;
-    
+
     BookAnalyticsViewController *bookAnalyticsViewController = [[BookAnalyticsViewController alloc]init];
     UITabBarItem *bookAnalyticsTabBarItem = [[UITabBarItem alloc]initWithTitle:@"我" image:[[UIImage imageNamed:@"tabbar-icon-me"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] selectedImage:[UIImage imageNamed:@"tabbar-icon-me"]];
     bookAnalyticsViewController.tabBarItem = bookAnalyticsTabBarItem;
-    
-    tabBarController.viewControllers = @[bookListViewController,bookScannerViewController,bookAnalyticsViewController];
+    bookAnalyticsViewController.navigationItem.title = @"我";
+    BaseNavigationController *bookAnalyticsNavigationController = [[BaseNavigationController alloc]initWithRootViewController:bookAnalyticsViewController];
+
+    tabBarController.viewControllers = @[bookListNavigationController,bookScannerViewController,bookAnalyticsNavigationController];
     tabBarController.tabBar.itemPositioning = UITabBarItemPositioningCentered;
     
     return YES;
