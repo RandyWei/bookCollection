@@ -7,6 +7,7 @@
 //
 
 #import "BaseNavigationController.h"
+#import "BaseViewController.h"
 
 @interface BaseNavigationController ()
 
@@ -17,16 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x009d82)];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
+    if ([viewController isKindOfClass:BaseViewController.class]) {
+        ((BaseViewController*)viewController).hidesBottomBarWhenPushed = [(BaseViewController*)viewController shouldHideBottomWhenPushed];
+    }else{
+        
+    }
+    [super pushViewController:viewController animated:YES];
 }
-*/
 
 @end

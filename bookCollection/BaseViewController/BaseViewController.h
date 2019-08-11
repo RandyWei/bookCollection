@@ -11,7 +11,11 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface BaseViewController : UIViewController
+-(UIImage*)navigationBarBackgroundImage;
 
+-(BOOL)shouldShowShadowImage;
+
+-(BOOL)shouldHideBottomWhenPushed;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -19,14 +19,45 @@
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self ajustNavigator];
 }
-*/
+
+
+#pragma mark - Navigation config
+-(void)ajustNavigator{
+    //是否隐藏导航栏底部的线
+    if([self shouldShowShadowImage]){
+        [self.navigationController.navigationBar setShadowImage:nil];
+    }else{
+        [self.navigationController.navigationBar setShadowImage:[UIImage new]];
+        [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
+    }
+    
+    //是否使用自定义背景(透明)
+    if ([self navigationBarBackgroundImage]) {
+        [self.navigationController.navigationBar setBackgroundImage:[self navigationBarBackgroundImage] forBarMetrics:UIBarMetricsDefault];
+    }else{
+        self.navigationController.navigationBar.barTintColor = UIColorFromRGB(0x009d82);
+        [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    }
+    
+}
+
+-(UIImage*)navigationBarBackgroundImage{
+    return nil;
+}
+
+-(BOOL)shouldShowShadowImage{
+    return NO;
+}
+
+-(BOOL)shouldHideBottomWhenPushed{
+    return NO;
+}
+
+
 
 @end

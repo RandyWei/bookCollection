@@ -27,9 +27,6 @@
 
 
 - (void)initNavigation{
-    self.navigationController.navigationBar.translucent = YES;
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [UIImage new];
     
     UIButton *backButton = [[UIButton alloc]init];
     [backButton setImage:[UIImage imageNamed:@"back-button"] forState:UIControlStateNormal];
@@ -46,6 +43,14 @@
     
     [flashButton addTarget:self action:@selector(didTapFlashButton:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:flashButton];
+}
+
+-(BOOL)shouldShowShadowImage{
+    return NO;
+}
+
+-(UIImage *)navigationBarBackgroundImage{
+    return [UIImage new];
 }
 
 -(void)didTabBackButton:(UIButton*) button{
