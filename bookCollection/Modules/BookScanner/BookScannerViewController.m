@@ -9,6 +9,8 @@
 #import "BookScannerViewController.h"
 #import "BookScannerView.h"
 #import <AFNetworking/AFNetworking.h>
+#import "BookEntity.h"
+#import "BookDetailViewController.h"
 
 @interface BookScannerViewController ()
 @property(strong,nonatomic)BookScannerView *scannerView;
@@ -100,6 +102,11 @@
             NSLog(@"error:%@",error);
         }else{
             NSLog(@"%@",responseObject);
+            BookEntity* bookEntity = [[BookEntity alloc]initWithDictionary:responseObject];
+            BookDetailViewController* bookDetailViewController = [[BookDetailViewController alloc]init];
+            bookDetailViewController.bookEntity = bookEntity;
+            
+            [self.navigationController pushViewController:bookDetailViewController animated:YES];
         }
     }];
     

@@ -6,13 +6,14 @@
 //  Copyright © 2019 RandyWei. All rights reserved.
 //
 
-#import "BookBaseModel.h"
+#import "BookAuthor.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface BookTranslator : BookBaseModel
+@interface BookTranslator : BookAuthor
 
-@property(copy,nonatomic)NSString* name;    
+
 @end
 
 NS_ASSUME_NONNULL_END

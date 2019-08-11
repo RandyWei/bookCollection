@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(instancetype)initWithDictionary:(NSDictionary*)dict;
 
-
+-(NSArray*)modelArrayFromDictArray:(NSArray*) array withModelClass:(Class)modelClass;
 
 @end
 

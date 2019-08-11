@@ -7,6 +7,9 @@
 //
 
 #import "BookEntity.h"
+#import "BookAuthor.h"
+#import "BookTranslator.h"
+#import "BookTag.h"
 
 @implementation BookEntity
 
@@ -25,6 +28,26 @@
     bookEntity.price = [dict objectForKey:@"price"];
     bookEntity.summary = [ dict objectForKey:@"summary"];
     bookEntity.author_intro = [ dict objectForKey:@"author_intro"];
+    
+    NSMutableArray *authors = [@[] mutableCopy];
+    //遍历数组
+    [[dict objectForKey:@"author"] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        BookAuthor *bookAuthor = [[BookAuthor alloc]init];
+        [bookAuthor setName:obj];
+        [authors addObject:bookAuthor];
+    }];
+    bookEntity.authors = authors;
+    
+    NSMutableArray *translators = [@[] mutableCopy];
+    [[dict objectForKey:@"author"] enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        BookTranslator *model = [[BookTranslator alloc]init];
+        [model setName:obj];
+        [translators addObject:model];
+    }];
+    bookEntity.translators = translators;
+    
+    
+    bookEntity.tags  = [self modelArrayFromDictArray:[dict objectForKey:@"tags"] withModelClass:[BookTag class]];
     
     
     return bookEntity;
