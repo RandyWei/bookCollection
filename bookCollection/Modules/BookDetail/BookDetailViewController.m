@@ -11,6 +11,9 @@
 #import "BookTranslator.h"
 #import "BookTag.h"
 
+#define kBackgroundHeight 270.5f //背景的高度
+#define kNavHeight 64.0f //导航条的高度
+
 @interface BookDetailViewController ()
 @property(strong,nonatomic)UIImageView* backgroundImageView;
 @end
@@ -45,13 +48,13 @@
 
 -(void)initBackgroundView{
     self.backgroundImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"detail-topbg"] ];
-    self.backgroundImageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 270.5f);
+    self.backgroundImageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), kBackgroundHeight);
     self.backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.backgroundImageView];
 }
 
 -(void)initScrollView{
-    UIScrollView* scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 64.0f, CGRectGetWidth(self.view.frame), (CGRectGetHeight(self.view.frame)-64.0f))];
+    UIScrollView* scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, kNavHeight, CGRectGetWidth(self.view.frame), (CGRectGetHeight(self.view.frame) - kNavHeight))];
     scrollView.alwaysBounceVertical = YES;
     scrollView.delegate = self;
     scrollView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -168,15 +171,37 @@
     
     //内容简介
     UILabel *summaryLabel = [[UILabel alloc]init];
-    summaryLabel.text = self.bookEntity.summary;
+    summaryLabel.text = @"内容简介";
     summaryLabel.font = [UIFont systemFontOfSize:16.0f];
     summaryLabel.textColor = UIColorFromRGB(0x555555);
     summaryLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [bodyView addSubview:summaryLabel];
     
     //内容简介内容
+    UILabel *detailLabel = [[UILabel alloc]init];
+    detailLabel.numberOfLines = 0;
+    detailLabel.text = self.bookEntity.summary;
+    detailLabel.font = [UIFont systemFontOfSize:15.0f];
+    detailLabel.textColor = UIColorFromRGB(0x999999);
+    detailLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [bodyView addSubview:detailLabel];
     
+    [bodyView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-15-[summaryLabel]-6.5-[detailLabel]-15-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(summaryLabel,detailLabel)]];
     
+    [bodyView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[summaryLabel]-15-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(summaryLabel)]];
+    
+    [bodyView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[detailLabel]-15-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(detailLabel)]];
+    
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //向下滚动
+    if (scrollView.contentOffset.y<0) {
+        self.backgroundImageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), kBackgroundHeight - scrollView.contentOffset.y);
+    }else{
+        self.backgroundImageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), kBackgroundHeight);
+    }
 }
 
 
