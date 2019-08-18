@@ -11,6 +11,7 @@
 #import "BookTranslator.h"
 #import "BookTag.h"
 #import <UIImageView+WebCache.h>
+#import "BookDetailService.h"
 
 #define kBackgroundHeight 270.5f //背景的高度
 #define kNavHeight 64.0f //导航条的高度
@@ -208,7 +209,10 @@
 
 
 -(void)didTapFavorButton:(UIButton*)button{
-    
+    long long bookId = [BookDetailService favBook:self.bookEntity];
+    if (bookId>0) {
+        [button setEnabled:NO];
+    }
 }
 
 @end

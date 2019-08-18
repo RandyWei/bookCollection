@@ -11,6 +11,7 @@
 #import "Modules/BookScanner/BookScannerViewController.h"
 #import "BookAnalyticsViewController.h"
 #import "BaseViewController/BaseNavigationController.h"
+#import "Helper/DB/BookDBHelper.h"
 
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
@@ -25,6 +26,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    [self initDB];
 
     UITabBarController *tabBarController = [[UITabBarController alloc]init];
     self.window.rootViewController = tabBarController;
@@ -50,6 +53,14 @@
     tabBarController.tabBar.itemPositioning = UITabBarItemPositioningCentered;
     
     return YES;
+}
+
+-(void)initDB{
+    NSString *dbPath = [BookDBHelper dbPath];
+    BOOL dbExsit = [[NSFileManager defaultManager] fileExistsAtPath:dbPath isDirectory:nil];
+    if (!dbExsit) {
+        [BookDBHelper buildDataBase];
+    }
 }
 
 

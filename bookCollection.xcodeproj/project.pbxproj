@@ -28,6 +28,13 @@
 		B63E953022F677BC00B78504 /* BookListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63E952F22F677BC00B78504 /* BookListViewController.m */; };
 		B63E953322F677DB00B78504 /* BookScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63E953222F677DB00B78504 /* BookScannerViewController.m */; };
 		B63E953622F677EC00B78504 /* BookAnalyticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63E953522F677EC00B78504 /* BookAnalyticsViewController.m */; };
+		B63ECF75230908E7008D1560 /* BookDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B63ECF74230908E7008D1560 /* BookDBHelper.m */; };
+		B63ECF7B23091302008D1560 /* BaseDao.m in Sources */ = {isa = PBXBuildFile; fileRef = B63ECF7A23091302008D1560 /* BaseDao.m */; };
+		B63ECF7E23091330008D1560 /* EntityDao.m in Sources */ = {isa = PBXBuildFile; fileRef = B63ECF7D23091330008D1560 /* EntityDao.m */; };
+		B63ECF812309134A008D1560 /* AuthorDao.m in Sources */ = {isa = PBXBuildFile; fileRef = B63ECF802309134A008D1560 /* AuthorDao.m */; };
+		B63ECF8423091355008D1560 /* TranslatorDao.m in Sources */ = {isa = PBXBuildFile; fileRef = B63ECF8323091355008D1560 /* TranslatorDao.m */; };
+		B63ECF8723091360008D1560 /* TagDao.m in Sources */ = {isa = PBXBuildFile; fileRef = B63ECF8623091360008D1560 /* TagDao.m */; };
+		B63ECF8A23091789008D1560 /* BookDetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = B63ECF8923091789008D1560 /* BookDetailService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +97,20 @@
 		B63E953222F677DB00B78504 /* BookScannerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookScannerViewController.m; sourceTree = "<group>"; };
 		B63E953422F677EC00B78504 /* BookAnalyticsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookAnalyticsViewController.h; sourceTree = "<group>"; };
 		B63E953522F677EC00B78504 /* BookAnalyticsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookAnalyticsViewController.m; sourceTree = "<group>"; };
+		B63ECF73230908E7008D1560 /* BookDBHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDBHelper.h; sourceTree = "<group>"; };
+		B63ECF74230908E7008D1560 /* BookDBHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDBHelper.m; sourceTree = "<group>"; };
+		B63ECF7923091302008D1560 /* BaseDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseDao.h; sourceTree = "<group>"; };
+		B63ECF7A23091302008D1560 /* BaseDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseDao.m; sourceTree = "<group>"; };
+		B63ECF7C23091330008D1560 /* EntityDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntityDao.h; sourceTree = "<group>"; };
+		B63ECF7D23091330008D1560 /* EntityDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntityDao.m; sourceTree = "<group>"; };
+		B63ECF7F2309134A008D1560 /* AuthorDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthorDao.h; sourceTree = "<group>"; };
+		B63ECF802309134A008D1560 /* AuthorDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthorDao.m; sourceTree = "<group>"; };
+		B63ECF8223091355008D1560 /* TranslatorDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TranslatorDao.h; sourceTree = "<group>"; };
+		B63ECF8323091355008D1560 /* TranslatorDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TranslatorDao.m; sourceTree = "<group>"; };
+		B63ECF8523091360008D1560 /* TagDao.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TagDao.h; sourceTree = "<group>"; };
+		B63ECF8623091360008D1560 /* TagDao.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TagDao.m; sourceTree = "<group>"; };
+		B63ECF8823091789008D1560 /* BookDetailService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDetailService.h; sourceTree = "<group>"; };
+		B63ECF8923091789008D1560 /* BookDetailService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDetailService.m; sourceTree = "<group>"; };
 		B671809F22FFB0B6009D6F67 /* bookCollection-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bookCollection-prefix.pch"; sourceTree = "<group>"; };
 		D04AF7EC3637616E88F2CC35 /* Pods-bookCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bookCollection/Pods-bookCollection.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,6 +263,9 @@
 		B63E94FA22F66C4400B78504 /* bookCollection */ = {
 			isa = PBXGroup;
 			children = (
+				B63ECF77230912DE008D1560 /* Service */,
+				B63ECF76230912D1008D1560 /* DAO */,
+				B63ECF71230908B1008D1560 /* Helper */,
 				B617562F22FFC02600F6DBC1 /* Model */,
 				B61C39F522FE58E90020E588 /* BaseViewController */,
 				B63E952D22F6779800B78504 /* Modules */,
@@ -288,6 +312,57 @@
 				B63E953522F677EC00B78504 /* BookAnalyticsViewController.m */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		B63ECF71230908B1008D1560 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				B63ECF72230908BA008D1560 /* DB */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		B63ECF72230908BA008D1560 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				B63ECF73230908E7008D1560 /* BookDBHelper.h */,
+				B63ECF74230908E7008D1560 /* BookDBHelper.m */,
+			);
+			path = DB;
+			sourceTree = "<group>";
+		};
+		B63ECF76230912D1008D1560 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				B63ECF78230912F2008D1560 /* Base */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
+		B63ECF77230912DE008D1560 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B63ECF8823091789008D1560 /* BookDetailService.h */,
+				B63ECF8923091789008D1560 /* BookDetailService.m */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B63ECF78230912F2008D1560 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B63ECF7923091302008D1560 /* BaseDao.h */,
+				B63ECF7A23091302008D1560 /* BaseDao.m */,
+				B63ECF7C23091330008D1560 /* EntityDao.h */,
+				B63ECF7D23091330008D1560 /* EntityDao.m */,
+				B63ECF7F2309134A008D1560 /* AuthorDao.h */,
+				B63ECF802309134A008D1560 /* AuthorDao.m */,
+				B63ECF8223091355008D1560 /* TranslatorDao.h */,
+				B63ECF8323091355008D1560 /* TranslatorDao.m */,
+				B63ECF8523091360008D1560 /* TagDao.h */,
+				B63ECF8623091360008D1560 /* TagDao.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		D2630B236C23D6DE2CB1C914 /* Frameworks */ = {
@@ -451,7 +526,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B63E953622F677EC00B78504 /* BookAnalyticsViewController.m in Sources */,
+				B63ECF7E23091330008D1560 /* EntityDao.m in Sources */,
+				B63ECF7B23091302008D1560 /* BaseDao.m in Sources */,
+				B63ECF8723091360008D1560 /* TagDao.m in Sources */,
 				B617563322FFC03F00F6DBC1 /* BookBaseModel.m in Sources */,
+				B63ECF812309134A008D1560 /* AuthorDao.m in Sources */,
 				B617563722FFC18200F6DBC1 /* BookEntity.m in Sources */,
 				B61C39F822FE59100020E588 /* BaseViewController.m in Sources */,
 				B63E950022F66C4400B78504 /* ViewController.m in Sources */,
@@ -460,9 +539,12 @@
 				B63E953022F677BC00B78504 /* BookListViewController.m in Sources */,
 				B61C39FB22FE59300020E588 /* BaseNavigationController.m in Sources */,
 				B617563F22FFCD4300F6DBC1 /* BookTranslator.m in Sources */,
+				B63ECF75230908E7008D1560 /* BookDBHelper.m in Sources */,
 				B61C39F322F69BE20020E588 /* BookScannerView.m in Sources */,
 				B617564722FFD0A800F6DBC1 /* BookDetailViewController.m in Sources */,
+				B63ECF8423091355008D1560 /* TranslatorDao.m in Sources */,
 				B617563B22FFCC0C00F6DBC1 /* BookAuthor.m in Sources */,
+				B63ECF8A23091789008D1560 /* BookDetailService.m in Sources */,
 				B63E950B22F66C4600B78504 /* main.m in Sources */,
 				B63E94FD22F66C4400B78504 /* AppDelegate.m in Sources */,
 			);
