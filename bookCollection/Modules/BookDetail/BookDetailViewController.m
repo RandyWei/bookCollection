@@ -10,6 +10,7 @@
 #import "BookAuthor.h"
 #import "BookTranslator.h"
 #import "BookTag.h"
+#import <UIImageView+WebCache.h>
 
 #define kBackgroundHeight 270.5f //背景的高度
 #define kNavHeight 64.0f //导航条的高度
@@ -72,6 +73,7 @@
     UIImageView* coverImageView = [[UIImageView alloc]init];
     coverImageView.translatesAutoresizingMaskIntoConstraints = NO;
     [coverImageView setBackgroundColor:[UIColor whiteColor]];
+    [coverImageView sd_setImageWithURL:[NSURL URLWithString:self.bookEntity.image]];
     [headerView addSubview:coverImageView];
     
     [headerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-16-[coverImageView(115)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(coverImageView)]];
