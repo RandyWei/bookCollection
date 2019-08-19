@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <FMDB/FMDB.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,7 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(instancetype)initWithDictionary:(NSDictionary*)dict;
 
+-(instancetype)initWithFMResultSet:(FMResultSet*)resultSet;
+
 -(NSArray*)modelArrayFromDictArray:(NSArray*) array withModelClass:(Class)modelClass;
+
+
 
 @end
 

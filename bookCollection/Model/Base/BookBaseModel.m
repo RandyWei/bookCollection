@@ -14,6 +14,12 @@
     NSString* msg = [NSString stringWithFormat:@"%s is not implemented for the class %@",sel_getName(_cmd),self];
     @throw [NSException exceptionWithName:@"BookModelInitialzeException" reason:msg userInfo:nil];
 }
+
+- (instancetype)initWithFMResultSet:(FMResultSet *)resultSet{
+    NSString* msg = [NSString stringWithFormat:@"%s is not implemented for the class %@",sel_getName(_cmd),self];
+    @throw [NSException exceptionWithName:@"BookModelInitialzeException" reason:msg userInfo:nil];
+}
+
 -(id)copyWithZone:(NSZone*) zone{
     NSString* msg = [NSString stringWithFormat:@"%s is not implemented for the class %@",sel_getName(_cmd),self];
     @throw [NSException exceptionWithName:@"BookModelInitialzeException" reason:msg userInfo:nil];

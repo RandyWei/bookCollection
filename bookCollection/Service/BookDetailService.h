@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BookDetailService : NSObject
 
 +(long long)favBook:(BookEntity*)entity;
+
++(BookEntity*)searchBookEntityByDoubanId:(long long)doubanId;
+
 @end
 
 NS_ASSUME_NONNULL_END

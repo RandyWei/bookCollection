@@ -18,6 +18,7 @@
 
 @interface BookDetailViewController ()
 @property(strong,nonatomic)UIImageView* backgroundImageView;
+@property(strong,nonatomic)UIButton *favorButton;
 @end
 
 @implementation BookDetailViewController
@@ -29,6 +30,11 @@
     
     [self initNavigation];
     [self initSubViews];
+    
+    BookEntity *favEntity = [BookDetailService searchBookEntityByDoubanId:self.bookEntity.doubanId];
+    if (favEntity!=nil&&_favorButton!=nil) {
+        [_favorButton setEnabled:NO];
+    }
 }
 
 -(void)initNavigation{
@@ -145,22 +151,22 @@
     }];
     
     //收藏按钮
-    UIButton *favorButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    favorButton.translatesAutoresizingMaskIntoConstraints = NO;
-    favorButton.titleLabel.font = [UIFont systemFontOfSize:12.0f];
-    [favorButton setBackgroundColor:[UIColor whiteColor]];
-    [favorButton setTitle:@"收藏" forState:UIControlStateNormal];
-    [favorButton setTitle:@"已收藏" forState:UIControlStateDisabled];
-    [favorButton setTitleColor:UIColorFromRGB(0x00a25b) forState:UIControlStateNormal];
-     [favorButton setTitleColor:UIColorFromRGB(0xb8b8b8) forState:UIControlStateDisabled];
-    favorButton.layer.cornerRadius = 2.0f;
-    [favorButton addTarget:self action:@selector(didTapFavorButton:) forControlEvents:UIControlEventTouchUpInside];
+    _favorButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _favorButton.translatesAutoresizingMaskIntoConstraints = NO;
+    _favorButton.titleLabel.font = [UIFont systemFontOfSize:12.0f];
+    [_favorButton setBackgroundColor:[UIColor whiteColor]];
+    [_favorButton setTitle:@"收藏" forState:UIControlStateNormal];
+    [_favorButton setTitle:@"已收藏" forState:UIControlStateDisabled];
+    [_favorButton setTitleColor:UIColorFromRGB(0x00a25b) forState:UIControlStateNormal];
+     [_favorButton setTitleColor:UIColorFromRGB(0xb8b8b8) forState:UIControlStateDisabled];
+    _favorButton.layer.cornerRadius = 2.0f;
+    [_favorButton addTarget:self action:@selector(didTapFavorButton:) forControlEvents:UIControlEventTouchUpInside];
     
-    [headerView addSubview:favorButton];
+    [headerView addSubview:_favorButton];
     
-    [headerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"H:[coverImageView]-14-[favorButton(==70)]" options:NSLayoutFormatAlignAllBottom metrics:nil views:NSDictionaryOfVariableBindings(coverImageView,favorButton)]];
+    [headerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"H:[coverImageView]-14-[_favorButton(==70)]" options:NSLayoutFormatAlignAllBottom metrics:nil views:NSDictionaryOfVariableBindings(coverImageView,_favorButton)]];
     
-    [headerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:[favorButton(==27)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(favorButton)]];
+    [headerView addConstraints: [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_favorButton(==27)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_favorButton)]];
     
     //body
     UIView *bodyView = [[UIView alloc]init];

@@ -51,4 +51,14 @@
     
     return bookId;
 }
+
++ (BookEntity *)searchBookEntityByDoubanId:(long long)doubanId{
+    FMDatabase *db = [FMDatabase databaseWithPath:[BookDBHelper dbPath]];
+    if (![db open]) {
+        return 0;
+    }
+    BookEntity *entity = [EntityDao queryModelByDoubanId:doubanId withDataBase:db];
+    [db close];
+    return entity;
+}
 @end

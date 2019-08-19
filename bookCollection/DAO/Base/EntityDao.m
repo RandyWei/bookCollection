@@ -17,4 +17,12 @@
         return 0;
     }
 }
++ (BookEntity *)queryModelByDoubanId:(long long)doubanId withDataBase:(FMDatabase *)db{
+    FMResultSet *s = [db executeQuery:@"select * from TB_BOOK_ENTITY where doubanId = ?",@(doubanId)];
+    if ([s next]) {
+        BookEntity *entity = [[BookEntity alloc]initWithFMResultSet:s];
+        return entity;
+    }
+    return nil;
+}
 @end

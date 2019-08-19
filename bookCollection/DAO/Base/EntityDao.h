@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EntityDao : BaseDao
 +(long long)insertModel:(BookEntity*)model withDataBase:(FMDatabase*)db;
+
++(BookEntity*)queryModelByDoubanId:(long long)doubanId withDataBase:(FMDatabase*)db;
 @end
 
 NS_ASSUME_NONNULL_END
