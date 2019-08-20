@@ -21,6 +21,18 @@
     return bookTag;
 }
 
+- (instancetype)initWithFMResultSet:(FMResultSet *)resultSet{
+    BookTag* bookTag = [[[self class]alloc]init];
+    
+    bookTag.bookId = [resultSet longLongIntForColumn:@"bookId"];
+    
+    bookTag.name = [resultSet stringForColumn:@"name"];
+    bookTag.count = [resultSet longLongIntForColumn:@"count"];
+    
+    return bookTag;
+
+}
+
 -(id)copyWithZone:(NSZone*)zone{
     BookTag* bookTag = [[[self class]allocWithZone:zone]init];
     

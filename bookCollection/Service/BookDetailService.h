@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(long long)favBook:(BookEntity*)entity;
 
++(BOOL)unFavBook:(long long)id;
+
 +(BookEntity*)searchBookEntityByDoubanId:(long long)doubanId;
 
 @end

@@ -17,4 +17,14 @@
         return 0;
     }
 }
++ (NSArray<BookAuthor *> *)queryModelsWithBookId:(long long)bookId withDataBase:(FMDatabase *)db{
+    NSMutableArray *array = [@[] mutableCopy];
+    FMResultSet *s = [db executeQuery:@"select * from TB_BOOK_AUTHOR where bookId = ?",@(bookId)];
+    while ([s next]) {
+        BookAuthor *author = [[BookAuthor alloc]initWithFMResultSet:s];
+        [array addObject:author];
+    }
+    [s close];
+    return array;
+}
 @end

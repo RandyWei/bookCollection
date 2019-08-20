@@ -52,6 +52,15 @@
     return bookId;
 }
 
++ (BOOL)unFavBook:(long long)id{
+    FMDatabase *db = [FMDatabase databaseWithPath:[BookDBHelper dbPath]];
+    if (![db open]) {
+        return 0;
+    }
+    BOOL result = [EntityDao deleteModelWithId:id withDataBase:db];
+    return result;
+}
+
 + (BookEntity *)searchBookEntityByDoubanId:(long long)doubanId{
     FMDatabase *db = [FMDatabase databaseWithPath:[BookDBHelper dbPath]];
     if (![db open]) {

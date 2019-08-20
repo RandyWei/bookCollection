@@ -35,6 +35,11 @@
 		B63ECF8423091355008D1560 /* TranslatorDao.m in Sources */ = {isa = PBXBuildFile; fileRef = B63ECF8323091355008D1560 /* TranslatorDao.m */; };
 		B63ECF8723091360008D1560 /* TagDao.m in Sources */ = {isa = PBXBuildFile; fileRef = B63ECF8623091360008D1560 /* TagDao.m */; };
 		B63ECF8A23091789008D1560 /* BookDetailService.m in Sources */ = {isa = PBXBuildFile; fileRef = B63ECF8923091789008D1560 /* BookDetailService.m */; };
+		B6F3E8FF230A718D002A127D /* BookListService.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3E8FE230A718D002A127D /* BookListService.m */; };
+		B6F3E902230A758A002A127D /* BookListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3E901230A758A002A127D /* BookListTableViewController.m */; };
+		B6F3E906230AA178002A127D /* BookBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3E905230AA178002A127D /* BookBaseTableViewCell.m */; };
+		B6F3E909230AA1A3002A127D /* BookListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3E908230AA1A3002A127D /* BookListTableViewCell.m */; };
+		B6F3E911230AA660002A127D /* BookListTableViewCell+BookEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3E910230AA660002A127D /* BookListTableViewCell+BookEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +117,16 @@
 		B63ECF8823091789008D1560 /* BookDetailService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookDetailService.h; sourceTree = "<group>"; };
 		B63ECF8923091789008D1560 /* BookDetailService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookDetailService.m; sourceTree = "<group>"; };
 		B671809F22FFB0B6009D6F67 /* bookCollection-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "bookCollection-prefix.pch"; sourceTree = "<group>"; };
+		B6F3E8FD230A718D002A127D /* BookListService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookListService.h; sourceTree = "<group>"; };
+		B6F3E8FE230A718D002A127D /* BookListService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookListService.m; sourceTree = "<group>"; };
+		B6F3E900230A758A002A127D /* BookListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookListTableViewController.h; sourceTree = "<group>"; };
+		B6F3E901230A758A002A127D /* BookListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookListTableViewController.m; sourceTree = "<group>"; };
+		B6F3E904230AA178002A127D /* BookBaseTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookBaseTableViewCell.h; sourceTree = "<group>"; };
+		B6F3E905230AA178002A127D /* BookBaseTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookBaseTableViewCell.m; sourceTree = "<group>"; };
+		B6F3E907230AA1A3002A127D /* BookListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookListTableViewCell.h; sourceTree = "<group>"; };
+		B6F3E908230AA1A3002A127D /* BookListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookListTableViewCell.m; sourceTree = "<group>"; };
+		B6F3E90F230AA660002A127D /* BookListTableViewCell+BookEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookListTableViewCell+BookEntity.h"; sourceTree = "<group>"; };
+		B6F3E910230AA660002A127D /* BookListTableViewCell+BookEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BookListTableViewCell+BookEntity.m"; sourceTree = "<group>"; };
 		D04AF7EC3637616E88F2CC35 /* Pods-bookCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bookCollection/Pods-bookCollection.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -263,6 +278,7 @@
 		B63E94FA22F66C4400B78504 /* bookCollection */ = {
 			isa = PBXGroup;
 			children = (
+				B6F3E90A230AA555002A127D /* Category */,
 				B63ECF77230912DE008D1560 /* Service */,
 				B63ECF76230912D1008D1560 /* DAO */,
 				B63ECF71230908B1008D1560 /* Helper */,
@@ -304,12 +320,15 @@
 		B63E952D22F6779800B78504 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				B6F3E903230AA147002A127D /* General */,
 				B617564422FFD08F00F6DBC1 /* BookDetail */,
 				B61C39F022F69B790020E588 /* BookScanner */,
 				B63E952E22F677BC00B78504 /* BookListViewController.h */,
 				B63E952F22F677BC00B78504 /* BookListViewController.m */,
 				B63E953422F677EC00B78504 /* BookAnalyticsViewController.h */,
 				B63E953522F677EC00B78504 /* BookAnalyticsViewController.m */,
+				B6F3E900230A758A002A127D /* BookListTableViewController.h */,
+				B6F3E901230A758A002A127D /* BookListTableViewController.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -344,6 +363,8 @@
 			children = (
 				B63ECF8823091789008D1560 /* BookDetailService.h */,
 				B63ECF8923091789008D1560 /* BookDetailService.m */,
+				B6F3E8FD230A718D002A127D /* BookListService.h */,
+				B6F3E8FE230A718D002A127D /* BookListService.m */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -363,6 +384,26 @@
 				B63ECF8623091360008D1560 /* TagDao.m */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		B6F3E903230AA147002A127D /* General */ = {
+			isa = PBXGroup;
+			children = (
+				B6F3E904230AA178002A127D /* BookBaseTableViewCell.h */,
+				B6F3E905230AA178002A127D /* BookBaseTableViewCell.m */,
+				B6F3E907230AA1A3002A127D /* BookListTableViewCell.h */,
+				B6F3E908230AA1A3002A127D /* BookListTableViewCell.m */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		B6F3E90A230AA555002A127D /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B6F3E90F230AA660002A127D /* BookListTableViewCell+BookEntity.h */,
+				B6F3E910230AA660002A127D /* BookListTableViewCell+BookEntity.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		D2630B236C23D6DE2CB1C914 /* Frameworks */ = {
@@ -529,7 +570,9 @@
 				B63ECF7E23091330008D1560 /* EntityDao.m in Sources */,
 				B63ECF7B23091302008D1560 /* BaseDao.m in Sources */,
 				B63ECF8723091360008D1560 /* TagDao.m in Sources */,
+				B6F3E8FF230A718D002A127D /* BookListService.m in Sources */,
 				B617563322FFC03F00F6DBC1 /* BookBaseModel.m in Sources */,
+				B6F3E902230A758A002A127D /* BookListTableViewController.m in Sources */,
 				B63ECF812309134A008D1560 /* AuthorDao.m in Sources */,
 				B617563722FFC18200F6DBC1 /* BookEntity.m in Sources */,
 				B61C39F822FE59100020E588 /* BaseViewController.m in Sources */,
@@ -537,12 +580,15 @@
 				B617564322FFCD8000F6DBC1 /* BookTag.m in Sources */,
 				B63E953322F677DB00B78504 /* BookScannerViewController.m in Sources */,
 				B63E953022F677BC00B78504 /* BookListViewController.m in Sources */,
+				B6F3E906230AA178002A127D /* BookBaseTableViewCell.m in Sources */,
 				B61C39FB22FE59300020E588 /* BaseNavigationController.m in Sources */,
 				B617563F22FFCD4300F6DBC1 /* BookTranslator.m in Sources */,
 				B63ECF75230908E7008D1560 /* BookDBHelper.m in Sources */,
 				B61C39F322F69BE20020E588 /* BookScannerView.m in Sources */,
 				B617564722FFD0A800F6DBC1 /* BookDetailViewController.m in Sources */,
+				B6F3E909230AA1A3002A127D /* BookListTableViewCell.m in Sources */,
 				B63ECF8423091355008D1560 /* TranslatorDao.m in Sources */,
+				B6F3E911230AA660002A127D /* BookListTableViewCell+BookEntity.m in Sources */,
 				B617563B22FFCC0C00F6DBC1 /* BookAuthor.m in Sources */,
 				B63ECF8A23091789008D1560 /* BookDetailService.m in Sources */,
 				B63E950B22F66C4600B78504 /* main.m in Sources */,

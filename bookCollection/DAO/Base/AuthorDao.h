@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AuthorDao : BaseDao
 +(long long)insertModel:(BookAuthor*)model withDataBase:(FMDatabase*)db;
++(NSArray<BookAuthor*>*)queryModelsWithBookId:(long long)bookId withDataBase:(FMDatabase*)db;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -20,6 +20,16 @@
     return bookAuthor;
 }
 
+- (instancetype)initWithFMResultSet:(FMResultSet *)resultSet{
+    
+    BookAuthor* bookAuthor = [[[self class]alloc]init];
+    
+    bookAuthor.bookId = [resultSet longLongIntForColumn:@"bookId"];
+    bookAuthor.name = [resultSet stringForColumn:@"name"];
+    
+    return bookAuthor;
+}
+
 -(id)copyWithZone:(NSZone*) zone{
     BookAuthor* bookAuthor = [[[self class]allocWithZone:zone]init];
     

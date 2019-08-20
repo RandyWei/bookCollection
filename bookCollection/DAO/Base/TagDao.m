@@ -17,4 +17,14 @@
         return 0;
     }
 }
++ (NSArray<BookTag *> *)queryModelsWithBookId:(long long)bookId withDataBase:(FMDatabase *)db{
+    NSMutableArray *array = [@[] mutableCopy];
+    FMResultSet *s = [db executeQuery:@"select * from TB_BOOK_TAG where bookId = ?",@(bookId)];
+    while ([s next]) {
+        BookTag *model = [[BookTag alloc]initWithFMResultSet:s];
+        [array addObject:model];
+    }
+    [s close];
+    return array;
+}
 @end

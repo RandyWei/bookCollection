@@ -17,6 +17,10 @@
         return 0;
     }
 }
++ (BOOL)deleteModelWithId:(long long)id withDataBase:(nonnull FMDatabase *)db{
+    BOOL suc = [db executeUpdate:@"delete FROM TB_BOOK_ENTITY where id = ?",@(id)];
+    return suc;
+}
 + (BookEntity *)queryModelByDoubanId:(long long)doubanId withDataBase:(FMDatabase *)db{
     FMResultSet *s = [db executeQuery:@"select * from TB_BOOK_ENTITY where doubanId = ?",@(doubanId)];
     if ([s next]) {
@@ -24,5 +28,15 @@
         return entity;
     }
     return nil;
+}
++ (NSArray<BookEntity *> *)queryAllModelsWithDataBase:(FMDatabase *)db{
+    NSMutableArray *array = [@[] mutableCopy];
+    FMResultSet *s = [db executeQuery:@"select * from TB_BOOK_ENTITY"];
+    while ([s next]) {
+        BookEntity *entity = [[BookEntity alloc]initWithFMResultSet:s];
+        [array addObject:entity];
+    }
+    [s close];
+    return array;
 }
 @end
