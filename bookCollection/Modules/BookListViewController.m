@@ -8,6 +8,7 @@
 
 #import "BookListViewController.h"
 #import "BookListTableViewController.h"
+#import "BookCollectionViewController.h"
 
 typedef NS_ENUM(NSInteger, BookListMode){
     BookListModeTableView,
@@ -61,7 +62,12 @@ typedef NS_ENUM(NSInteger, BookListMode){
         controller.view.frame = self.view.bounds;
         [controller didMoveToParentViewController:self];
     }else{
-        
+        BookCollectionViewController *controller = [[BookCollectionViewController alloc]init];
+        [controller willMoveToParentViewController:self];
+        [self addChildViewController:controller];
+        [self.view addSubview:controller.view];
+        controller.view.frame = self.view.bounds;
+        [controller didMoveToParentViewController:self];
     }
 }
 
