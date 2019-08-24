@@ -9,6 +9,8 @@
 #import "BookCollectionViewController.h"
 #import "BookEntity.h"
 #import "BookListCollectionViewCell.h"
+#import "BookListCollectionViewCell+BookEntity.h"
+#import "BookListService.h"
 
 @interface BookCollectionViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -22,7 +24,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initCollectionView];
+    [self initData];
 }
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self initData];
+}
+
+-(void)initData{
+    self.bookEntities = [[BookListService getAllBookEntities] mutableCopy];
+    [self.collectionView reloadData];
+}
+
 
 -(void)initCollectionView{
     
@@ -32,11 +45,12 @@
     //[layout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     //该方法也可以设置itemSize
     
-    static int ninimumInteritemSpacing = 5;
+    static int ninimumInteritemSpacing = 0;
+    int frameWidth = (CGRectGetWidth(self.view.frame) - ninimumInteritemSpacing * 2 )/3;
+    int frameHeight =frameWidth * 7 / 5 + 10;
     
-    [layout setItemSize:CGSizeMake(CGRectGetWidth(self.view.frame)/2 - ninimumInteritemSpacing, 100)];
+    [layout setItemSize:CGSizeMake((CGRectGetWidth(self.view.frame) - ninimumInteritemSpacing * 2 )/3 , frameHeight)];
     [layout setMinimumInteritemSpacing:ninimumInteritemSpacing];
-    
     
     //这里为什么用self.view.bounds self.view.frame
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) collectionViewLayout:layout];
@@ -56,12 +70,16 @@
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     static NSString *identifier = @"cellId";
     BookListCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    BookEntity *entity = [self.bookEntities objectAtIndex:indexPath.row];
+    [cell configureWithBookEntity:entity];
+    
     return cell;
 }
 
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
+    return self.bookEntities.count;
 }
 
 

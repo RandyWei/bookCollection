@@ -42,6 +42,7 @@
 		B6F3E909230AA1A3002A127D /* BookListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3E908230AA1A3002A127D /* BookListTableViewCell.m */; };
 		B6F3E911230AA660002A127D /* BookListTableViewCell+BookEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F3E910230AA660002A127D /* BookListTableViewCell+BookEntity.m */; };
 		B6F5E3212310ADA200A63C72 /* BookListCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F5E3202310ADA200A63C72 /* BookListCollectionViewCell.m */; };
+		B6F5E32D2310F0E800A63C72 /* BookListCollectionViewCell+BookEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = B6F5E32C2310F0E800A63C72 /* BookListCollectionViewCell+BookEntity.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,8 @@
 		B6F3E910230AA660002A127D /* BookListTableViewCell+BookEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BookListTableViewCell+BookEntity.m"; sourceTree = "<group>"; };
 		B6F5E31F2310ADA200A63C72 /* BookListCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BookListCollectionViewCell.h; sourceTree = "<group>"; };
 		B6F5E3202310ADA200A63C72 /* BookListCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookListCollectionViewCell.m; sourceTree = "<group>"; };
+		B6F5E32B2310F0E800A63C72 /* BookListCollectionViewCell+BookEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BookListCollectionViewCell+BookEntity.h"; sourceTree = "<group>"; };
+		B6F5E32C2310F0E800A63C72 /* BookListCollectionViewCell+BookEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BookListCollectionViewCell+BookEntity.m"; sourceTree = "<group>"; };
 		D04AF7EC3637616E88F2CC35 /* Pods-bookCollection.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookCollection.debug.xcconfig"; path = "Pods/Target Support Files/Pods-bookCollection/Pods-bookCollection.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -412,6 +415,8 @@
 			children = (
 				B6F3E90F230AA660002A127D /* BookListTableViewCell+BookEntity.h */,
 				B6F3E910230AA660002A127D /* BookListTableViewCell+BookEntity.m */,
+				B6F5E32B2310F0E800A63C72 /* BookListCollectionViewCell+BookEntity.h */,
+				B6F5E32C2310F0E800A63C72 /* BookListCollectionViewCell+BookEntity.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -589,6 +594,7 @@
 				B61C39F822FE59100020E588 /* BaseViewController.m in Sources */,
 				B63E950022F66C4400B78504 /* ViewController.m in Sources */,
 				B617564322FFCD8000F6DBC1 /* BookTag.m in Sources */,
+				B6F5E32D2310F0E800A63C72 /* BookListCollectionViewCell+BookEntity.m in Sources */,
 				B63E953322F677DB00B78504 /* BookScannerViewController.m in Sources */,
 				B63E953022F677BC00B78504 /* BookListViewController.m in Sources */,
 				B6F3E906230AA178002A127D /* BookBaseTableViewCell.m in Sources */,
